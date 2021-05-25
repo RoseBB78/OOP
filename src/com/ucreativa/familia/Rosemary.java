@@ -2,6 +2,6 @@ package com.ucreativa.familia;
 
 public class Rosemary {
     public Rosemary (){
-        System.out.println("Hola soy Rose");
+        System.out.println("Hi this is Rose");
     }
 }

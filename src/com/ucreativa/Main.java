@@ -7,9 +7,9 @@ import com.ucreativa.familia.Rossy;
 public class Main {
     public static void main(String[] args){
         Rosemary yo = new Rosemary();
-        Rossy mama = new Rossy("Hola mi mamí es:");
+        Rossy mama = new Rossy("Hi my mom name is: Rossy");
         mama.setAge();
         int age = mama.getAge();
-        System.out.println(" Chao Class " + age);
+        System.out.println("My mom Age is " + age);
     }
 }
