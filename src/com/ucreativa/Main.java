@@ -10,6 +10,6 @@ public class Main {
         Rossy mama = new Rossy("Hi my mom name is: Rossy");
         mama.setAge();
         int age = mama.getAge();
-        System.out.println("My mom Age is " + age);
+        System.out.println("My mom's Age is: " + age);
     }
 }

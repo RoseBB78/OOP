@@ -5,9 +5,9 @@ public class Rossy {
     private String hobby;
 
     public Rossy(String saludo){
-        this.age = 74;
+        this.age = 75;
         this.hobby = "knitting";
-        System.out.println(saludo);
+        System.out.println("My mom's hobby it's: " + hobby);
     }
     public void setAge(){
         this.age = this.age + 1;
