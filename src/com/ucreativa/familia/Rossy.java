@@ -1,9 +1,10 @@
 package com.ucreativa.familia;
 
-    public class Rossy {
+public class Rossy {
+    public Rossy(String saludo){
+        System.out.println(saludo);
+    }
+    public Rossy(){
 
-        public Rossy(String saludo) {
-
-            System.out.println(saludo);
     }
 }
