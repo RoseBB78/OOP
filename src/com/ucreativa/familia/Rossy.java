@@ -4,10 +4,11 @@ public class Rossy {
     private int age;
     private String hobby;
 
-    public Rossy(String saludo){
-        this.age = 75;
-        this.hobby = "knitting";
-        System.out.println("My mom's hobby it's: " + hobby);
+    public Rossy(String saludo,
+                 int age,
+                 String hobby){
+        this.age = age;
+        this.hobby = hobby;
     }
     public void setAge(){
         this.age = this.age + 1;
