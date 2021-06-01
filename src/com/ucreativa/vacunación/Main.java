@@ -10,18 +10,14 @@ public class Main {
         Amigo juan = new Amigo("Juan", "110010010", 52,
                 true, "Amigo", "Sí");
         Familiar mama = new Familiar("Rossy", "103150217", 75,
-                true, "madre");
+                true, "Madre");
         Familiar padre = new Familiar("Otto", "103170215", 75,
-                true,"padre");
-
+                true,"Padre");
 
         ArrayList<BitacoraVacunas> bitacora = new ArrayList<BitacoraVacunas>();
         bitacora.add(new BitacoraVacunas(juan, "Pfizer", new Date()));
         bitacora.add(new BitacoraVacunas(mama,"AstraZeneca", new Date()));
         bitacora.add(new BitacoraVacunas(padre, "Johnson", new Date()));
-
-
-
     }
 
 }
