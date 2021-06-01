@@ -4,7 +4,6 @@ import com.sun.tools.javac.util.List;
 import java.util.Date;
 import java.util.ArrayList;
 
-
 public class Main {
     public static void main(String[] args){
         Amigo juan = new Amigo("Juan", "110010010", 52,
