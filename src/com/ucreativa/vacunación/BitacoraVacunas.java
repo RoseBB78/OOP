@@ -1,8 +1,9 @@
 package com.ucreativa.vacunación;
 
-import java.sql.Date;
 
-    public class BitacoraVacunas {
+import java.util.Date;
+
+public class BitacoraVacunas {
         public BitacoraVacunas(Persona persona, String marca, Date fecha) {
             this.persona = persona;
             this.marca = marca;
