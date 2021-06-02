@@ -1,5 +1,9 @@
 package com.ucreativa.vacunación;
 
+import com.ucreativa.vacunación.entities.Amigo;
+import com.ucreativa.vacunación.entities.BitacoraVacunas;
+import com.ucreativa.vacunación.entities.Familiar;
+
 import java.util.Date;
 import java.util.ArrayList;
 

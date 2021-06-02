@@ -1,4 +1,4 @@
-package com.ucreativa.vacunación;
+package com.ucreativa.vacunación.entities;
 
 public class Familiar extends Persona {
 
