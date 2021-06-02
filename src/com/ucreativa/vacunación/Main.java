@@ -1,4 +1,4 @@
-package com.ucreativa.familia;
+package com.ucreativa.vacunación;
 
 import com.sun.tools.javac.util.List;
 import com.ucreativa.vacunación.Amigo;
@@ -22,5 +22,4 @@ public class Main {
         bitacora.add(new BitacoraVacunas(mama,"AstraZeneca", new Date()));
         bitacora.add(new BitacoraVacunas(padre, "Johnson", new Date()));
     }
-
 }
