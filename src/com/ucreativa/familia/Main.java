@@ -1,6 +1,10 @@
-package com.ucreativa.vacunación;
+package com.ucreativa.familia;
 
 import com.sun.tools.javac.util.List;
+import com.ucreativa.vacunación.Amigo;
+import com.ucreativa.vacunación.BitacoraVacunas;
+import com.ucreativa.vacunación.Familiar;
+
 import java.util.Date;
 import java.util.ArrayList;
 
