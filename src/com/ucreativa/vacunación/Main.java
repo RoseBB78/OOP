@@ -4,6 +4,7 @@ import com.ucreativa.vacunación.entities.Amigo;
 import com.ucreativa.vacunación.entities.BitacoraVacunas;
 import com.ucreativa.vacunación.entities.Familiar;
 import com.ucreativa.vacunación.entities.Persona;
+import com.ucreativa.vacunación.repositories.InMemoryRepository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,13 +12,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    private static String print;
 
+    public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        List<BitacoraVacunas> db = new ArrayList<>();
+        InMemoryRepository repo = new InMemoryRepository();
+        Persona persona;
+        String nombre, cedula, edad, riesgo, isAmigo, relacion, facebook, parentesco, marca;
         while (true) {
-            String nombre, cedula, edad, riesgo, isAmigo, relacion, facebook, parentesco, marca;
-            Persona persona;
             System.out.println("Nombre");
             nombre = in.nextLine();
             System.out.println("Cedula");
@@ -41,13 +43,12 @@ public class Main {
             }
             System.out.println("Vacuna -- Marca");
             marca = in.nextLine();
-
-            db.add(new BitacoraVacunas(persona, marca, new Date()));
+            repo.save(persona, marca, new Date());
             System.out.println("Quiere imprimir Lista(S)");
-            String print = in.nextLine();
+            print = in.nextLine();
             if (print.equals("S")) {
-                for (BitacoraVacunas item : db) {
-                    System.out.println(item.getPersona().getNombre() + "Vacunado el" + item.getFecha());
+                for (String item : repo.get()) {
+                    System.out.println(item);
                 }
             }
         }
