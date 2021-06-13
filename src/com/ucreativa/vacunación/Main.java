@@ -1,15 +1,8 @@
 package com.ucreativa.vacunación;
 
-import com.ucreativa.vacunación.entities.Amigo;
-import com.ucreativa.vacunación.entities.BitacoraVacunas;
-import com.ucreativa.vacunación.entities.Familiar;
-import com.ucreativa.vacunación.entities.Persona;
-import com.ucreativa.vacunación.repositories.InMemoryRepository;
-import com.ucreativa.vacunación.repositories.Repository;
+import com.ucreativa.vacunación.repositories.FileRepository;
+import com.ucreativa.vacunación.services.BitacoraService;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -17,11 +10,11 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        //InMemoryRepository repo = new InMemoryRepository();
-        Repository repo = (Repository) new InMemoryRepository();
-        Persona persona;
-        String nombre, cedula, edad, riesgo, isAmigo, relacion, facebook, parentesco, marca;
-        while (true) {
+        BitacoraService service = new BitacoraService(new FileRepository());
+        String nombre, cedula, edad, riesgo, isAmigo,
+                relacion = "", facebook = "", parentesco = "", marca, print;
+        boolean seguir = true;
+        while (seguir) {
             System.out.println("Nombre");
             nombre = in.nextLine();
             System.out.println("Cedula");
@@ -37,22 +30,25 @@ public class Main {
                 relacion = in.nextLine();
                 System.out.println("Facebook");
                 facebook = in.nextLine();
-                persona = new Amigo(nombre, cedula, Integer.parseInt(edad), riesgo.equals("S"), relacion, facebook);
+                //persona = new Amigo(nombre, cedula, Integer.parseInt(edad), riesgo.equals("S"), relacion, facebook);
             } else {
                 System.out.println("Parentesco");
                 parentesco = in.nextLine();
-                persona = new Familiar(nombre, cedula, Integer.parseInt(edad), riesgo.equals("S"), parentesco);
+                //persona = new Familiar(nombre, cedula, Integer.parseInt(edad), riesgo.equals("S"), parentesco);
             }
             System.out.println("Vacuna -- Marca");
             marca = in.nextLine();
-            repo.save(persona, marca, new Date());
+           service.save(nombre, cedula, edad, riesgo, isAmigo,
+                    relacion, facebook, parentesco, marca);
             System.out.println("Quiere imprimir Lista(S)");
             print = in.nextLine();
             if (print.equals("S")) {
-                for (String item : repo.get()) {
+                for (String item : service.get()) {
                     System.out.println(item);
                 }
             }
+            System.out.println("Continuar? (Default 'S')");
+            seguir = !in.nextLine().equals("N");
         }
     }
 }

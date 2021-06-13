@@ -1,6 +1,7 @@
 package com.ucreativa.vacunación.repositories;
 import com.ucreativa.vacunación.entities.Persona;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 

@@ -9,8 +9,10 @@ import java.util.Date;
 import java.util.List;
 
 public class InMemoryRepository {
+
     private final List<BitacoraVacunas> db;
     public InMemoryRepository(){
+
         this.db = new ArrayList<>();
     }
         public void save(Persona persona, String marca, Date fecha){
