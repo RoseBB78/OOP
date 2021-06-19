@@ -8,27 +8,27 @@ import java.awt.event.ActionEvent;
 
 public class FrontEnd extends JFrame {
 
-    public FrontEnd(String titulo){
+    public FrontEnd(String titulo) {
         super(titulo);
     }
 
-    public void build(){
+    public void build() {
         this.construccionPantalla();
         this.crearComponentes();
         super.setVisible(true);
     }
 
-    private void construccionPantalla(){
+    private void construccionPantalla() {
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         super.setSize(400, 200);
         super.setLayout(new GridLayout(5, 2));
     }
 
-    private void agregarComponente(Component componente){
+    private void agregarComponente(Component componente) {
         super.getContentPane().add(componente);
     }
 
-    private void crearComponentes(){
+    private void crearComponentes() {
 
         // Crear Labels
         JLabel lblNombre = new JLabel("Nombre");
@@ -70,15 +70,19 @@ public class FrontEnd extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 BitacoraService service = new BitacoraService(new FileRepository());
-                service.save(txtNombre.getText(),
-                        txtCedula.getText(),
-                        txtEdad.getText(),
-                        txtRiesgo.isSelected(),
-                        txtEsAmigo.isSelected(),
-                        txtRelacion.getText(),
-                        txtFacebook.getText(),
-                        txtParentesco.getText(),
-                        txtMarca.getText());
+                try {
+                    service.save(txtNombre.getText(),
+                            txtCedula.getText(),
+                            txtEdad.getText(),
+                            txtRiesgo.isSelected(),
+                            txtEsAmigo.isSelected(),
+                            txtRelacion.getText(),
+                            txtFacebook.getText(),
+                            txtParentesco.getText(),
+                            txtMarca.getText());
+                } catch (ErrorEnEdadException errorEnEdadException) {
+                    errorEnEdadException.printStackTrace();
+                }
 
                 txtNombre.setText("");
                 txtCedula.setText("");
@@ -90,12 +94,35 @@ public class FrontEnd extends JFrame {
                 txtParentesco.setText("");
                 txtMarca.setText("");
 
-                String reporte = String.join("\n", service.get());
-                JOptionPane.showMessageDialog(((JButton)e.getSource()).getParent(), reporte);
+                try {
+                    service.save(txtNombre.getText(),
+                            txtCedula.getText(),
+                            txtEdad.getText(),
+                            txtRiesgo.isSelected(),
+                            txtEsAmigo.isSelected(),
+                            txtRelacion.getText(),
+                            txtFacebook.getText(),
+                            txtParentesco.getText(),
+                            txtMarca.getText());
 
+                    txtNombre.setText("");
+                    txtCedula.setText("");
+                    txtEdad.setText("");
+                    txtRiesgo.setText("");
+                    txtEsAmigo.setText("");
+                    txtRelacion.setText("");
+                    txtFacebook.setText("");
+                    txtParentesco.setText("");
+                    txtMarca.setText("");
+
+                    String reporte = String.join("\n", service.get());
+                    JOptionPane.showMessageDialog(((JButton) e.getSource()).getParent(), reporte);
+                } catch (ErrorEnEdadException error) {
+                    JOptionPane.showMessageDialog(((JButton) e.getSource()).getParent(),
+                            error.getMessage());
+                }
             }
         });
-
         // Agregamos al UI
         this.agregarComponente(lblNombre);
         this.agregarComponente(txtNombre);

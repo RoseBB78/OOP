@@ -15,13 +15,15 @@ public class Amigo extends Persona {
         return relacion;
     }
 
-    public void setRelacion(String relacion) {this.relacion = relacion;}
+    public void setRelacion(String relacion) {
+        this.relacion = relacion;}
 
     public String getFacebook() {
         return facebook;
     }
 
-    public void setFacebook(String facebook) { this.facebook = facebook;}
+    //public void setFacebook(String facebook) { this.facebook = facebook;}
 
-    public String toString(){ return  super.getNombre();}
+    public String toString(){
+        return  super.getNombre();}
 }
