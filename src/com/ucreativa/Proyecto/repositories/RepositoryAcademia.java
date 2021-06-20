@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface RepositoryAcademia {
-    void save(Persona persona, String marca, Date fecha);
+    void save(Persona persona, String cinturon, Date fecha);
 
 
     List<String> get();

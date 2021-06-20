@@ -19,7 +19,6 @@ public class BitacoraService {
 
     public void save(String nombre, String cedula, String txtEdad,
                      boolean riesgo, boolean isAmigo, String relacion,
-
                      String facebook, String parentesco, String marca) throws ErrorEnEdadException {
         int edad;
         try {

@@ -11,3 +11,4 @@ public class Encargado extends Persona {
         return encargado;
     }
 }
+

@@ -11,6 +11,7 @@ public class Alumno extends Persona {
     }
 
     public String getencargados() {
+
         return encargados;
     }
 

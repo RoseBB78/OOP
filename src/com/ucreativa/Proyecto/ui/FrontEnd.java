@@ -131,3 +131,4 @@ public class FrontEnd extends JFrame {
             this.agregarComponente(salvar);
         }
 }
+
