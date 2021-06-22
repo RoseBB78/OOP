@@ -12,9 +12,11 @@ import java.util.List;
 public class BitacoraService {
 
     private Repository repository;
+    private ContadorRiesgo contador;
 
     public BitacoraService(Repository repository) {
         this.repository = repository;
+        this.contador = ContadorRiesgo.getInstance ();
     }
 
     public void save(String nombre, String cedula, String txtEdad,
@@ -26,6 +28,10 @@ public class BitacoraService {
         } catch (NumberFormatException x) {
             throw new ErrorEnEdadException(txtEdad);
         }
+        if(riesgo){
+        this.contador.SumarRiesgo ();
+        }
+
         Persona persona;
         if (isAmigo) {
             persona = new Amigo(nombre, cedula, edad, riesgo, relacion, facebook);
