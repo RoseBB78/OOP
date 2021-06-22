@@ -47,6 +47,8 @@ public class BitacoraService {
     }
 
     public List<String> get() {
+        System.out.println ("La Cantidad de Personas con Riesgo es:"
+                + this.contador.getCantidadRiesgo ());
         return this.repository.get();
     }
 }

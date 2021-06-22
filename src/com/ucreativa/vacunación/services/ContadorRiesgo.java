@@ -18,3 +18,4 @@ public class ContadorRiesgo {
         return this.cantidadRiesgo;
     }
 }
+
