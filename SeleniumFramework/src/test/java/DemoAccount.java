@@ -75,8 +75,13 @@ public class DemoAccount {
 
         actions.perform();
 
+<<<<<<< HEAD
         WebElement dropped = driver.findElement(By.xpath("//div[@id='droppedlist']/span[text()='Draggable 1']"));
         Assert.assertTrue(dropped.isDisplayed());
+=======
+        WebElement dropped = driver.findElement(By.xpath("//div[@id='droppedlist']/span[text()='Draggable 1']"));
+        Assert.assertTrue(dropped.isDisplayed());
+>>>>>>> origin/main
 
     }
 
