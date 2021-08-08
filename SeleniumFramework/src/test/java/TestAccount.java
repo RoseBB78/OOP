@@ -75,3 +75,4 @@ public class TestAccount {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }
+

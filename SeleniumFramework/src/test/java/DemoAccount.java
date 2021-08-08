@@ -78,5 +78,5 @@ public class DemoAccount {
         WebElement dropped = driver.findElement(By.xpath("//div[@id='droppedlist']/span[text()='Draggable 1']"));
         Assert.assertTrue(dropped.isDisplayed());
     }
-
 }
+
