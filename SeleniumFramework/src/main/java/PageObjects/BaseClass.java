@@ -1,3 +1,5 @@
+package PageObjects;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -7,23 +9,27 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
+import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 public class BaseClass {
     protected WebDriver driver;
-
-    @BeforeTest
-    public void beforeTest() {
-        //System.out.println("*This run only one time");
-    }
-
     @Parameters({"browser"})
     @BeforeMethod
-    public void beforeMethod(@Optional("chrome") String browser) {
-        //System.out.println("**This run two times");
-        switch(browser){
+    public void beforeMethod(@Optional("chrome") String browser) throws MalformedURLException, InterruptedException {
+
+        //WebDriverManager caps = WebDriverManager.firefoxdriver();
+
+        //DesiredCapabilities caps = DesiredCapabilities.chrome();
+        //String node = "http://localhost:8000/wd/hub";
+        //driver = new RemoteWebDriver(new URL(node), caps);
+
+        switch (browser){
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
@@ -37,25 +43,19 @@ public class BaseClass {
                 driver = new ChromeDriver();
                 break;
         }
-
         driver.manage().window().maximize();
         driver.get("https://demo.opencart.com/");
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
-    @AfterTest
-    public void AfterTest() {
-
-    }
-
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void AfterMethod(){
         TakeScreenshot();
         driver.close();
         try {
             driver.quit();
         } catch (WebDriverException ex){
-            System.out.println("The browser was already closed");
+            System.out.println("El browser ya estaba cerrado");
         }
     }
     @Attachment(value = "screenshot", type = "image/png")
@@ -63,3 +63,4 @@ public class BaseClass {
         return ((TakesScreenshot) this.driver).getScreenshotAs(OutputType.BYTES);
     }
 }
+

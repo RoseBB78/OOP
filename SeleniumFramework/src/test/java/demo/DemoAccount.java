@@ -1,3 +1,5 @@
+package demo;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -78,5 +80,6 @@ public class DemoAccount {
         WebElement dropped = driver.findElement(By.xpath("//div[@id='droppedlist']/span[text()='Draggable 1']"));
         Assert.assertTrue(dropped.isDisplayed());
     }
+
 }
 

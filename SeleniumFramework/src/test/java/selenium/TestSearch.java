@@ -1,3 +1,8 @@
+package selenium;
+
+import PageObjects.BaseClass;
+import PageObjects.SearchResultsPage;
+import dataProviders.SearchProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -6,7 +11,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class TestSearch extends BaseClass{
+public class TestSearch extends BaseClass {
     @Test
     @Parameters({"searchCriteria", "expectedResult"})
     public void Validate_Search(@Optional("macbook") String searchCriteria,
@@ -42,4 +47,21 @@ public class TestSearch extends BaseClass{
     public int getResults(){
         return driver.findElements(By.cssSelector(".product-thumb")).size();
     }
+
+    @Test (dataProvider = "getSearchDataFromJson", dataProviderClass = SearchProvider.class)
+    public void Test_Search_WithData(Pojo.SearchData testData){
+        SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
+        WebElement searchInput = driver.findElement(By.name("search"));
+        searchInput.sendKeys(testData.getSearchCriteria());
+
+        driver.findElement(By.xpath("//div[@id='search']/span/button")).click();
+
+        if(testData.getExpectedResults() > 0){
+            Assert.assertEquals(searchResultsPage.getResultsCount(), testData.getExpectedResults());
+        }
+        else{
+            Assert.assertTrue(searchResultsPage.isNoResultsVisible());
+        }
+    }
 }
+
