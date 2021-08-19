@@ -14,6 +14,10 @@ public class HeaderPage {
     public HeaderPage(WebDriver _driver){
         this.driver = _driver;
     }
+
+    public static void clickOnCartButton() {
+    }
+
     public void clickOnMyAccount(){
         driver.findElement(myAccountLinkLocator).click();
     }
