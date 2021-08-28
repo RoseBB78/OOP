@@ -1,0 +1,14 @@
+{
+  "dataSet": [
+    {
+      "email" : "rballesterob@hotmail.com",
+      "password" : "020878Rbb",
+      "validAccount": true
+    },
+    {
+      "email" : "rballesterob@hotmail.com",
+      "password" : "020878Rbb1",
+      "validAccount": false
+    }
+  ]
+}

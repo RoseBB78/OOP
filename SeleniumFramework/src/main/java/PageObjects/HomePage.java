@@ -3,11 +3,14 @@ package PageObjects;
 import Selectors.HomePageLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-public class HomePage extends BaseClass{
+public class HomePage extends BasePage{
+    private By searchBar = By.name("search");
+    private By searchButton = By.xpath("//div[@id='search']/span/button");
 
     public HomePage(WebDriver _driver){
-        this.driver = _driver;
+        super(_driver);
     }
 
     public String getFirstProductName(){
@@ -20,5 +23,15 @@ public class HomePage extends BaseClass{
         String name = getFirstProductName();
         selectProductByName(name);
         return name;
+    }
+    public void GoTo(){
+        HeaderPage headerPage = new HeaderPage(driver);
+        headerPage.clickOnYourStoreButton();
+    }
+    public void  searchForProduct( String searchTestCriteria){
+        WebElement searchInput = driver.findElement(searchBar);
+        searchInput.sendKeys(searchTestCriteria);
+        driver.findElement(By.xpath("//div[@id='search']/span/button")).click();
+
     }
 }

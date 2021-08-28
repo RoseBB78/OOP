@@ -2,20 +2,58 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-public class ShoppingCartPage extends BaseClass{
-
-    public String ProductNameLocator = "//table/tbody/tr/td/a[text()='<name>']";
+public class ShoppingCartPage extends BasePage {
+    public String ProductNameLocator = "//div[@id='content']//a[text()='<name>']";
     public By ProductQuantityLocator = By.xpath("//*[@id='content']/form/div/table/tbody/tr/td[4]/div/input");
+    private String productRowLocator = "//div[@id='content']//tr[contains(.,'<name>')]";
+    private WebElement productRow;
+    private By inputRowSelector = By.cssSelector("input");
+    private By imageSelector = By.cssSelector("img");
+    private By shoppingCartRows = By.xpath("//div[@id='content']//div[contains(@class, 'table-responsive')]//tr");
+    private By alertProductNotAvailableLocator = By.xpath("//*[@id=\"checkout-cart\"]/div[1]");
+    private By CheckoutButtonLocator = By.xpath("//*[@id=\"content\"]/div[3]/div[2]/a");
+    private By errorCheckOut = By.xpath ("//*[@id='checkout-cart']/div[1]");
+    private By totalAmount= By.xpath("//*[@id=\"content\"]/form/div/table/tbody/tr/td[6]");
 
     public ShoppingCartPage(WebDriver _driver){
-        this.driver = _driver;
+        super(_driver);
     }
 
-    public boolean isProductNameDisplayed(String name){
-        return driver.findElement(By.xpath(ProductNameLocator.replace("<name>", name))).isDisplayed();
+    public boolean isProductRowDisplayed(String name){
+        this.productRow =
+                driver.findElement(
+                        By.xpath(productRowLocator.replace("<name>", name)));
+        return this.productRow.isDisplayed();
     }
-    public int getProductQuantity(){
-        return Integer.parseInt(driver.findElement(ProductQuantityLocator).getAttribute("value"));
+    public int getProductRowQuantity(){
+        String sAmount = productRow.findElement(inputRowSelector)
+                .getAttribute("value");
+        return Integer.parseInt(sAmount);
     }
+    public String checkOutMessage(){
+        String errorMessage=  driver.findElement(errorCheckOut).getText();
+        System.out.println(errorMessage);
+        return errorMessage;
+    }
+
+    public String getProductImageURL(){
+        String imageURL = productRow.findElement(imageSelector)
+                .getAttribute("src");
+        return imageURL;
+    }
+    public int getAmountOfShoppingCartRows(){
+        return driver.findElements(shoppingCartRows).size() - 1;
+    }
+    public String catchProductPriceOnShoppingCart() {
+        String TotalAmount=  driver.findElement(totalAmount).getText();
+        return TotalAmount;
+    }
+    public String getAlertProductNotAvailable(){
+        driver.findElement(CheckoutButtonLocator).click();
+        return driver.findElement(alertProductNotAvailableLocator).getText();
+    }
+
+
 }

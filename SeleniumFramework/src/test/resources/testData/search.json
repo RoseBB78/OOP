@@ -1,0 +1,29 @@
+{
+  "dataSet": [
+    {
+      "searchCriteria": "macbook",
+      "expectedResults": 3
+    },
+    {
+      "searchCriteria" : "Macbook air",
+      "expectedResults" : 1
+    },
+    {
+      "searchCriteria": "Star Wars",
+      "expectedResults": 0
+    },
+    {
+      "searchCriteria": "iPhone",
+      "expectedResults": 1
+    },
+    {
+      "searchCriteria": "Canon",
+      "expectedResults": 1
+    },
+
+    {
+      "searchCriteria": "Samsung",
+      "expectedResults": 2
+    }
+  ]
+}

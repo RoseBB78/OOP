@@ -3,8 +3,7 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
-    private WebDriver driver;
+public class LoginPage extends BasePage{
 
     //Elementos
     private By emailInputLocator = By.name("email");
@@ -12,9 +11,8 @@ public class LoginPage {
     private By submitButtonSelector = By.cssSelector("[value='Login']");
 
     public LoginPage(WebDriver _driver){
-        this.driver = _driver;
+        super(_driver);
     }
-
     public void EnterEmail(String email){
         this.driver.findElement(emailInputLocator).sendKeys(email);
     }
@@ -24,13 +22,11 @@ public class LoginPage {
     public void ClickSubmitButton(){
         this.driver.findElement(submitButtonSelector).click();
     }
-
     public void login(String username, String password){
         this.driver.findElement(emailInputLocator).sendKeys(username);
         this.driver.findElement(passwordInputLocator).sendKeys(password);
         this.driver.findElement(submitButtonSelector).click();
     }
-
     public void GoTo(){
         HeaderPage headerPage = new HeaderPage(driver);
         headerPage.clickOnMyAccount();
