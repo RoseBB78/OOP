@@ -8,7 +8,6 @@ public class SearchData {
         this.searchCriteria = _searchCritera;
         this.expectedResults = _expectedResults;
     }
-
     public void setSearchCriteria(String searchCriteria){
         this.searchCriteria = searchCriteria;
     }

@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import org.testng.annotations.DataProvider;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
@@ -25,3 +24,4 @@ public class ProductPricesProvider {
         return returnValue;
     }
 }
+

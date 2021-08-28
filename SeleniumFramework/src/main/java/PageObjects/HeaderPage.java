@@ -60,3 +60,4 @@ public class HeaderPage extends BasePage {
         driver.findElement(poundCurrencyLocator).click();
     }
 }
+

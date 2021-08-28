@@ -43,5 +43,4 @@ public class SearchResultsPage extends BasePage {
 
         driver.findElement(checkoutLinkSelector).click();
     }
-
 }

@@ -37,7 +37,6 @@ public class ShoppingCartPage extends BasePage {
         System.out.println(errorMessage);
         return errorMessage;
     }
-
     public String getProductImageURL(){
         String imageURL = productRow.findElement(imageSelector)
                 .getAttribute("src");
@@ -54,6 +53,4 @@ public class ShoppingCartPage extends BasePage {
         driver.findElement(CheckoutButtonLocator).click();
         return driver.findElement(alertProductNotAvailableLocator).getText();
     }
-
-
 }

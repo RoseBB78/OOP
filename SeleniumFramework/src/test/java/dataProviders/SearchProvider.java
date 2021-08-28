@@ -6,7 +6,6 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import org.testng.annotations.DataProvider;
 import Pojo.SearchData;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
@@ -25,8 +24,6 @@ public class SearchProvider {
                 {new SearchData("macbook", 3)}
         };
     }
-
-
     @DataProvider(name = "getSearchDataFromJson")
     private Object[][] getSearchDataFromJson() throws FileNotFoundException {
         JsonElement jsonData = new JsonParser().parse(new FileReader("src/test/resources/testData/search.json"));

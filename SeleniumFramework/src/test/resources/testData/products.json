@@ -7,7 +7,6 @@
       "poundPrice" : 454.10,
       "euroPrice": 518.16
     },
-
     {
       "product" : "iphone",
       "imageURL" : "iphone_1-228x228.jpg",
@@ -15,7 +14,6 @@
       "poundPrice" : 92.93,
       "euroPrice": 106.04
     },
-
     {
       "product" : "apple cinema",
       "imageURL" : "apple_cinema_30-228x228.jpg",
@@ -23,7 +21,6 @@
       "poundPrice" : 82.98,
       "euroPrice": 94.68
     },
-
     {
       "product" : "Canon EOS 5D",
       "imageURL" : "canon_eos_5d_2-500x500.jpg",
@@ -31,7 +28,6 @@
       "poundPrice" : 73.92,
       "euroPrice": 84.35
     },
-
     {
       "product" : "Samsung SyncMaster 941BW",
       "imageURL" : "samsung_syncmaster_941bw-228x228.jpg",

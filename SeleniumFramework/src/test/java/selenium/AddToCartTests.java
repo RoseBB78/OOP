@@ -85,10 +85,10 @@ public class AddToCartTests extends BaseClass {
         headerPage().changeCurrencyToPound();
         String poundTotalAmount=shoppingCartPage.catchProductPriceOnShoppingCart();
 
-        double dolar = Utils.returnDouble(dollarTotalAmount);
+        double dollar = Utils.returnDouble(dollarTotalAmount);
         double euro = Utils.returnDouble(euroTotalAmount);
         double pound = Utils.returnDouble(poundTotalAmount);
-        Assert.assertEquals(dolar,testProduct.getDolarsPrice());
+        Assert.assertEquals(dollar,testProduct.getDolarsPrice());
         Assert.assertEquals(euro,testProduct.getEuroPrice());
         Assert.assertEquals(pound,testProduct.getPoundsPrice());
     }

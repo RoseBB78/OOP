@@ -14,24 +14,20 @@ public class ProductsPrices {
         this.poundsPrice = poundsPrice;
         this.euroPrice = euroPrice;
     }
-
     public String getProduct() {
         return product;
     }
-
     public String getImageURL() {
         return imageURL;
     }
-
     public double getDolarsPrice() {
         return dolarsPrice;
     }
-
     public double getPoundsPrice() {
         return poundsPrice;
     }
-
     public double getEuroPrice() {
         return euroPrice;
     }
 }
+

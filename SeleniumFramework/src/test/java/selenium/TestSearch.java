@@ -41,7 +41,6 @@ public class TestSearch extends BaseClass {
     //public int getResults(){
     //return driver.findElements(By.cssSelector(".product-thumb")).size();
     //}
-
     @Test (dataProvider = "getSearchDataFromJson", dataProviderClass = SearchProvider.class)
     public void Test_Search_WithData(SearchData testData){
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);

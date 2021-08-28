@@ -2,7 +2,6 @@ package PageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import java.util.Random;
 
 public class RegisterPage extends BasePage{
@@ -28,7 +27,6 @@ public class RegisterPage extends BasePage{
         headerPage.clickOnMyAccount();
         headerPage.clickOnRegisterButton();
     }
-
     public void FillForm(String firstName, String lastName, String email, String telephone, String password){
         driver.findElement(NameLocator).sendKeys(firstName);
         driver.findElement(LastNameLocator).sendKeys(lastName);
@@ -39,7 +37,6 @@ public class RegisterPage extends BasePage{
         driver.findElement(TermsCheckBoxLocator).click();
         driver.findElement(ContinueButtonLocator).click();
     }
-
     public String GetConfirmationMessage(){
 
         return driver.findElement(ConfirmRegisterMessageLocator).getText();
@@ -47,7 +44,6 @@ public class RegisterPage extends BasePage{
     public String GetDuplicateEmailWarningMessage(){
         return driver.findElement(DuplicateEmailWarningMessageLocator).getText();
     }
-
     public String generateRandomEmail(){
         String saltCharacters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder salt = new StringBuilder();

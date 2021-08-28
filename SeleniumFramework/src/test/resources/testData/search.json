@@ -20,7 +20,6 @@
       "searchCriteria": "Canon",
       "expectedResults": 1
     },
-
     {
       "searchCriteria": "Samsung",
       "expectedResults": 2

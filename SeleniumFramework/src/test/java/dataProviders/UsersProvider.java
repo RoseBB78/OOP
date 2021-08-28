@@ -6,7 +6,6 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import org.testng.annotations.DataProvider;
 import Pojo.UserAccount;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
@@ -32,3 +31,4 @@ public class UsersProvider {
         return returnValue;
     }
 }
+

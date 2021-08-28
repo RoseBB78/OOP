@@ -12,7 +12,6 @@ public class HomePage extends BasePage{
     public HomePage(WebDriver _driver){
         super(_driver);
     }
-
     public String getFirstProductName(){
         return driver.findElement(HomePageLocators.FirstProductTitleSelector).getText();
     }
@@ -32,6 +31,5 @@ public class HomePage extends BasePage{
         WebElement searchInput = driver.findElement(searchBar);
         searchInput.sendKeys(searchTestCriteria);
         driver.findElement(By.xpath("//div[@id='search']/span/button")).click();
-
     }
 }

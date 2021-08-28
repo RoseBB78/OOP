@@ -15,7 +15,6 @@ public class SearchPage extends BasePage{
     public SearchPage(WebDriver _driver) {
         super(_driver);
     }
-
     public void EnterValidSearchCriteria (String searchCriteria, int expectedResult){
         driver.findElement(SearchBarLocator).sendKeys(searchCriteria,Keys.ENTER);
         Assert.assertTrue(driver.getCurrentUrl().contains("search="+searchCriteria));

@@ -16,7 +16,6 @@ public class TestAccount extends BaseClass {
     public By logOutButtonLocator = By.linkText("Logout");
     public By alertMessageLocator = By.xpath("//div[contains(@class, 'alert-danger')]");
 
-
     @Description("Validate test login was Successful")
     @Test(description = "Test Login Success")
     public void Test_Login_Successful(){
@@ -69,7 +68,7 @@ public class TestAccount extends BaseClass {
         else
             Assert.assertEquals(ERROR_EMAIL_AND_PASSWORD_INVALID_MESSAGE.toLowerCase(), driver.findElement(alertMessageLocator).getText().toLowerCase().trim());
     }
-
+    @Description("Creating a New Account")
     @Test
     public void Test_Create_New_Account(){
         //SETUP
@@ -113,4 +112,5 @@ public class TestAccount extends BaseClass {
         Assert.assertEquals(AccountLogoutMessage, expectedAccountLogoutMessage);
     }
 }
+
 

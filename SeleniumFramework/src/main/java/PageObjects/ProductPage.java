@@ -14,21 +14,18 @@ public class ProductPage extends BasePage{
     public ProductPage(WebDriver _driver){
         super(_driver);
     }
-
     public boolean isTitleDisplayed(String name){
         return driver.findElement(By.xpath(ProductTitleSelector.replace("<name>", name))).isDisplayed();
     }
-
     public void SetQuantity(int quantity){
         driver.findElement(ProductQuantityInputSelector).clear();
         driver.findElement(ProductQuantityInputSelector).sendKeys("" + quantity);
     }
-
     public void clickAddButton(){
         driver.findElement(AddButtonSelector).click();
     }
-
     public boolean isAlertSuccessDisplayed(){
         return driver.findElement(AlertSuccess).isDisplayed();
     }
 }
+
